@@ -1,9 +1,11 @@
-name: Verify Test
+name: Tests and Coveralls
+
 on: pull_request
+
 jobs:
-  coverage:
+  coveralls:
     runs-on: ubuntu-latest
-    strategy:
+    strategy: 
       matrix:
         elixir: [1.13]
         otp: [24]
@@ -20,17 +22,18 @@ jobs:
           key: ${{ runner.os }}-${{ matrix.otp }}-${{ matrix.elixir }}-mix-${{ hashFiles(format('{0}{1}', github.workspace, '/mix.lock')) }}
       - name: Install Mix Dependencies
         if: steps.mix-cache-coverage.outputs.cache-hit != 'true'
-        run: |
+        run: | 
           mix local.rebar --force
           mix local.hex --force
           mix deps.get
           mix ecto.create
-      - name: ===> Verify Coverage and tests
+      - name: ===> Check coverage and tests
         run: mix coveralls.html
     services:
-      pg:
-        image: postgres:12
-        ports: ['5432:5432']
+      database:
+        image: postgres
+        ports:
+          - 5432:5432
         env:
           POSTGRES_PASSWORD: postgres
         options: >-
