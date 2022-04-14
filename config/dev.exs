@@ -33,7 +33,7 @@ config :smart_git, SmartGitWeb.Endpoint,
       "--postcss",
       "--watch",
       cd: Path.expand("../assets", __DIR__)
-      ]
+    ]
   ]
 
 # ## SSL Support

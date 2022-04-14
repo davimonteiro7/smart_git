@@ -1,8 +1,6 @@
 defmodule SmartGitWeb.Router do
   use SmartGitWeb, :router
 
-
-
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
@@ -17,9 +15,9 @@ defmodule SmartGitWeb.Router do
   # end
 
   scope "/", SmartGitWeb do
-   pipe_through :browser
+    pipe_through :browser
 
-   live "/", PageLive, :index
+    live "/", PageLive, :index
   end
 
   # Other scopes may use custom stacks.
