@@ -1,6 +1,8 @@
 defmodule SmartGitWeb.Router do
   use SmartGitWeb, :router
+
   # coveralls-ignore-start
+
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
@@ -42,6 +44,7 @@ defmodule SmartGitWeb.Router do
       live_dashboard "/dashboard", metrics: SmartGitWeb.Telemetry
     end
   end
+
   # Enables the Swoosh mailbox preview in development.
   #
   # Note that preview only shows emails that were sent by the same
@@ -53,5 +56,6 @@ defmodule SmartGitWeb.Router do
       forward "/mailbox", Plug.Swoosh.MailboxPreview
     end
   end
+
   # coveralls-ignore-stop
 end
