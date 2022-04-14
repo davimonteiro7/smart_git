@@ -1,6 +1,6 @@
 defmodule SmartGitWeb.Router do
   use SmartGitWeb, :router
-
+  # coveralls-ignore-start
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
@@ -10,15 +10,15 @@ defmodule SmartGitWeb.Router do
     plug :put_secure_browser_headers
   end
 
-  ## pipeline :api do
-  ##  plug :accepts, ["json"]
-  ## end
+  # pipeline :api do
+  #  plug :accepts, ["json"]
+  # end
 
-  ## scope "/", SmartGitWeb do
-  ##  pipe_through :browser
-  ##
-  ##  get "/", PageController, :index
-  ## end
+  # scope "/", SmartGitWeb do
+  #  pipe_through :browser
+  #
+  #  get "/", PageController, :index
+  # end
 
   # Other scopes may use custom stacks.
   # scope "/api", SmartGitWeb do
@@ -32,7 +32,7 @@ defmodule SmartGitWeb.Router do
   # If your application does not have an admins-only section yet,
   # you can use Plug.BasicAuth to set up some basic authentication
   # as long as you are also using SSL (which you should anyway).
-  # coveralls-ignore-start
+
   if Mix.env() in [:dev, :test] do
     import Phoenix.LiveDashboard.Router
 
@@ -42,7 +42,6 @@ defmodule SmartGitWeb.Router do
       live_dashboard "/dashboard", metrics: SmartGitWeb.Telemetry
     end
   end
-
   # Enables the Swoosh mailbox preview in development.
   #
   # Note that preview only shows emails that were sent by the same
@@ -54,6 +53,5 @@ defmodule SmartGitWeb.Router do
       forward "/mailbox", Plug.Swoosh.MailboxPreview
     end
   end
-
   # coveralls-ignore-stop
 end
