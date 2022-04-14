@@ -3,4 +3,28 @@
       class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full">
       Elixir
   </button>
+  <button data-role="btn-language-select" data-id="rust" 
+      class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full">
+      Rust
+  </button>
+  <button data-role="btn-language-select" data-id="javascript" 
+      class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-full">
+      Javascript
+  </button>
+  <button data-role="btn-language-select" data-id="java" 
+      class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">
+      Java
+  </button>
+  <button data-role="btn-language-select" data-id="haskell" 
+      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+      Haskell
+  </button>
+</div>
+
+<div id="list-repos" class="bg-white w-full rounded-lg shaddow p4">
+  <ul class="divide-y divide-gray-200" id="allrepos">
+    <%= for i <- 1..10 do %>
+    <%= live_component RepoDetail, id: "#{i}"%>
+    <% end %>
+  </ul>
 </div>
