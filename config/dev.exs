@@ -25,7 +25,15 @@ config :smart_git, SmartGitWeb.Endpoint,
   secret_key_base: "n2y9Z45V8KASfYsM1/nwy75+gKHU12l1pmXLHzLg562g9NW8WmgRay5VKmYZZ+CB",
   watchers: [
     # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
-    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
+    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
+    npx: [
+      "tailwindcss",
+      "--input=css/app.css",
+      "--output=../priv/static/assets/app.css",
+      "--postcss",
+      "--watch",
+      cd: Path.expand("../assets", __DIR__)
+      ]
   ]
 
 # ## SSL Support

@@ -1,7 +1,7 @@
 defmodule SmartGitWeb.Router do
   use SmartGitWeb, :router
 
-  # coveralls-ignore-start
+
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -16,11 +16,11 @@ defmodule SmartGitWeb.Router do
   #  plug :accepts, ["json"]
   # end
 
-  # scope "/", SmartGitWeb do
-  #  pipe_through :browser
-  #
-  #  get "/", PageController, :index
-  # end
+  scope "/", SmartGitWeb do
+   pipe_through :browser
+
+   live "/", PageLive, :index
+  end
 
   # Other scopes may use custom stacks.
   # scope "/api", SmartGitWeb do
@@ -34,7 +34,7 @@ defmodule SmartGitWeb.Router do
   # If your application does not have an admins-only section yet,
   # you can use Plug.BasicAuth to set up some basic authentication
   # as long as you are also using SSL (which you should anyway).
-
+  # coveralls-ignore-start
   if Mix.env() in [:dev, :test] do
     import Phoenix.LiveDashboard.Router
 
