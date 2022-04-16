@@ -11,6 +11,9 @@ config :smart_git,
   ecto_repos: [SmartGit.Repo],
   generators: [binary_id: true]
 
+# Configure Tesla
+config :tesla, adapter: Tesla.Adapter.Hackney
+
 # Configures the endpoint
 config :smart_git, SmartGitWeb.Endpoint,
   url: [host: "localhost"],
