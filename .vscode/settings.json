@@ -1,0 +1,24 @@
+{
+    "elixirLS.enableTestLenses": true,
+    "elixirLS.fetchDeps": true,
+    "workbench.iconTheme": "material-icon-theme",
+    "[elixir]": {
+        "editor.defaultFormatter": "JakeBecker.elixir-ls"
+    },
+    "files.associations": {
+        "*.heex": "html-eex"
+    },
+    "[html-eex]": {
+        "editor.defaultFormatter": "animus-coop.vscode-elixir-mix-formatter"
+    },
+
+    "emmet.includeLanguages": {
+        "phoenix-heex": "html"
+    },
+    "[phoenix-heex]": {
+        "editor.defaultFormatter": "animus-coop.vscode-elixir-mix-formatter"
+    },
+    "tailwindCSS.includeLanguages": {
+        "phoenix-heex": "html"
+    },
+}
