@@ -6,7 +6,7 @@ defmodule SmartGit.GitRepos do
   def create(repo) do
     %GitRepo{}
     |> GitRepo.changeset(repo)
-    |> Repo.insert
+    |> Repo.insert()
   end
 
   def all, do: GitRepo |> Repo.all()
@@ -15,5 +15,9 @@ defmodule SmartGit.GitRepos do
     GitRepo
     |> select([g], g.git_id)
     |> Repo.all()
+  end
+
+  def get_by_git_id(id) do
+    Repo.get_by(GitRepo, git_id: id)
   end
 end

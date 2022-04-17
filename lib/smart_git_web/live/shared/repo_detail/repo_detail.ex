@@ -16,9 +16,9 @@ defmodule SmartGitWeb.Shared.RepoDetail do
     icon = socket.assigns.icon
     repo = socket.assigns.repo
 
-    if icon =="add.html" do
+    if icon == "add.html" do
       GitRepos.create(repo)
-      message = socket.assigns.message == nil && "Repo added!" || nil
+      message = (socket.assigns.message == nil && "Repo added!") || nil
       {:noreply, assign(socket, message: message, icon: "go.html")}
     else
       socket = push_redirect(socket, to: Routes.show_repo_path(socket, :index, repo.git_id))
@@ -31,7 +31,6 @@ defmodule SmartGitWeb.Shared.RepoDetail do
   end
 
   defp choose_icon(socket, id, saved_repos) do
-
     if id in saved_repos do
       assign(socket, icon: "go.html")
     else
