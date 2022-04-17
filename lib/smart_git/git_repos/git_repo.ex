@@ -9,6 +9,7 @@ defmodule SmartGit.GitRepos.GitRepo do
     field :description, :string
     field :forks, :integer
     field :git_id, :integer
+    field :full_name, :string
     field :language, :string
     field :name, :string
     field :open_issues, :integer
@@ -21,8 +22,8 @@ defmodule SmartGit.GitRepos.GitRepo do
   @doc false
   def changeset(git_repo, attrs) do
     git_repo
-    |> cast(attrs, [:avatar_url, :description, :forks, :git_id, :language, :name, :open_issues, :url, :watchers_count])
-    |> validate_required([:avatar_url, :description, :forks, :git_id, :language, :name, :open_issues, :url, :watchers_count])
+    |> cast(attrs, [:avatar_url, :description, :forks, :git_id, :full_name, :language, :name, :open_issues, :url, :watchers_count])
+    |> validate_required([:avatar_url, :description, :forks, :git_id, :full_name, :language, :name, :open_issues, :url, :watchers_count])
     |> unique_constraint(:git_id)
   end
 end
